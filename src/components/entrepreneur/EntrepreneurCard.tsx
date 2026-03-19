@@ -23,7 +23,7 @@ export const EntrepreneurCard: React.FC<EntrepreneurCardProps> = ({
   };
   
   const handleMessage = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card click
+    e.stopPropagation(); 
     navigate(`/chat/${entrepreneur.id}`);
   };
   
