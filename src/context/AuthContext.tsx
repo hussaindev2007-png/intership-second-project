@@ -90,13 +90,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  // --- AUTOMATIC LOGIN AFTER OTP MATCH ---
+
   const verifyOTP = async (code: string): Promise<void> => {
     setIsLoading(true);
     try {
-      // 1234 check
+      
       if (code === "1234" && pendingUser) {
-        // Chonkay automatic ho raha hai, toh thora delay dashboard ke liye acha lagta hai
+       
         await new Promise(resolve => setTimeout(resolve, 500));
         
         const finalUser = { ...pendingUser };
@@ -121,7 +121,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
     localStorage.removeItem(SESSION_KEY);
     toast.success('Logged out');
-    window.location.href = '/login'; // Data isolation fix
+    window.location.href = '/login'; 
   };
 
   const cancel2FA = () => {
