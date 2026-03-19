@@ -4,11 +4,11 @@ import { Eraser, CheckCircle, X, Maximize2 } from 'lucide-react';
 export const SignaturePad: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false); // Modal state
+  const [isOpen, setIsOpen] = useState(false); 
   const [isDrawing, setIsDrawing] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
 
-  // Resize canvas when modal opens
+  
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
@@ -66,7 +66,7 @@ export const SignaturePad: React.FC = () => {
 
   return (
     <>
-      {/* Sidebar Button to open Full Screen Modal */}
+      
       <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm w-full">
         <h3 className="text-sm font-semibold text-gray-800 mb-3">Legal Signature</h3>
         <button 
@@ -78,7 +78,7 @@ export const SignaturePad: React.FC = () => {
         </button>
       </div>
 
-      {/* Full Screen Modal */}
+      
       {isOpen && (
         <div className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
