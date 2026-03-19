@@ -30,7 +30,7 @@ export const ChatUserList: React.FC<ChatUserListProps> = ({ conversations }) => 
         <div className="space-y-1">
           {conversations.length > 0 ? (
             conversations.map(conversation => {
-              // Get the other participant (not the current user)
+             
               const otherParticipantId = conversation.participants.find(id => id !== currentUser.id);
               if (!otherParticipantId) return null;
               
