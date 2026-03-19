@@ -1,7 +1,7 @@
 import { Message, ChatConversation } from '../types';
 
 export const messages: Message[] = [
-  // Conversation between Sarah (e1) and Michael (i1)
+
   {
     id: 'm1',
     senderId: 'e1',
@@ -35,7 +35,7 @@ export const messages: Message[] = [
     isRead: false
   },
 
-  // Conversation between Maya (e3) and Jennifer (i2)
+
   {
     id: 'm5',
     senderId: 'i2',
@@ -61,7 +61,7 @@ export const messages: Message[] = [
     isRead: false
   },
 
-  // Conversation between David (e2) and Robert (i3)
+  
   {
     id: 'm8',
     senderId: 'e2',
@@ -88,7 +88,7 @@ export const messages: Message[] = [
   }
 ];
 
-// Helper function to get messages between two users
+
 export const getMessagesBetweenUsers = (user1Id: string, user2Id: string): Message[] => {
   return messages.filter(
     message => 
@@ -97,9 +97,9 @@ export const getMessagesBetweenUsers = (user1Id: string, user2Id: string): Messa
   ).sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
 };
 
-// Helper function to get conversations for a user
+
 export const getConversationsForUser = (userId: string): ChatConversation[] => {
-  // Get unique conversation partners
+
   const conversationPartners = new Set<string>();
   
   messages.forEach(message => {
@@ -111,7 +111,7 @@ export const getConversationsForUser = (userId: string): ChatConversation[] => {
     }
   });
   
-  // Create conversation objects
+
   return Array.from(conversationPartners).map(partnerId => {
     const conversationMessages = getMessagesBetweenUsers(userId, partnerId);
     const lastMessage = conversationMessages[conversationMessages.length - 1];
@@ -125,7 +125,6 @@ export const getConversationsForUser = (userId: string): ChatConversation[] => {
   }).sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
 };
 
-// Helper function to send a new message
 export const sendMessage = (newMessage: Omit<Message, 'id' | 'timestamp' | 'isRead'>): Message => {
   const message: Message = {
     ...newMessage,
